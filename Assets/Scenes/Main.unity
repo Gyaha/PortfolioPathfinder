@@ -984,6 +984,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8748272401561338700, guid: e57a9f6f9fd97a34b8b05d0cafe61ba6,
         type: 3}
+      propertyPath: m_Options.m_Options.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748272401561338700, guid: e57a9f6f9fd97a34b8b05d0cafe61ba6,
+        type: 3}
       propertyPath: m_Options.m_Options.Array.data[0].m_Text
       value: Random
       objectReference: {fileID: 0}
@@ -996,6 +1001,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Options.m_Options.Array.data[2].m_Text
       value: Perlin2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748272401561338700, guid: e57a9f6f9fd97a34b8b05d0cafe61ba6,
+        type: 3}
+      propertyPath: m_Options.m_Options.Array.data[3].m_Text
+      value: Cells (Test)
       objectReference: {fileID: 0}
     - target: {fileID: 8748272401445220671, guid: e57a9f6f9fd97a34b8b05d0cafe61ba6,
         type: 3}
@@ -1296,9 +1306,9 @@ MonoBehaviour:
   gridController: {fileID: 1477713240}
   visualizationManager: {fileID: 1352232082}
   cameraManager: {fileID: 1352232079}
-  gridSizeSmall: 8
-  gridSizeMedium: 16
-  gridSizeLarge: 32
+  gridSizeSmall: 9
+  gridSizeMedium: 19
+  gridSizeLarge: 35
 --- !u!114 &1352232081
 MonoBehaviour:
   m_ObjectHideFlags: 0

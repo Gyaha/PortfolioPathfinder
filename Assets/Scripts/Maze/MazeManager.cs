@@ -17,13 +17,14 @@ public class MazeManager : MonoBehaviour
     private MazeBuilder mazeBuilderRandom;
     private MazeBuilder mazebuilderPerlin;
     private MazeBuilder mazebuilderPerlin2;
+    private MazeBuilder mazebuilderCells;
 
     private void Awake()
     {
         mazeBuilderRandom = new MazeBuilderRandom(this);
         mazebuilderPerlin = new MazeBuilderPerlin(this);
         mazebuilderPerlin2 = new MazeBuilderPerlin2(this);
-
+        mazebuilderCells = new MazeBuilderCells(this);
     }
 
     public void StartMazeBuilder(MazeMode mazeMode)
@@ -44,6 +45,10 @@ public class MazeManager : MonoBehaviour
         {
             mazeData = mazebuilderPerlin2.Run();
         }
+        else if (mazeMode == MazeMode.Cells)
+        {
+            mazeData = mazebuilderCells.Run();
+        }
         else
         {
             mazeData = new MazeData(false, new Vector2Int(0, 0), new Vector2Int(width - 1, height - 1), new List<WallInfo>());
@@ -58,5 +63,6 @@ public enum MazeMode
 {
     Random,
     Perlin,
-    Perlin2
+    Perlin2,
+    Cells
 }

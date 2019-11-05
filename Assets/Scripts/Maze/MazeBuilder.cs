@@ -49,6 +49,12 @@ public class MazeBuilder
         for (int i = 0; i < wallMap.Length; i++) wallMap[i] = startsFilled;
     }
 
+    protected bool GetWall(int x, int y)
+    {
+        Vector2Int node = new Vector2Int(x, y);
+        return GetWall(node);
+    }
+
     protected bool GetWall(Vector2Int node)
     {
         return wallMap[NodeToIndex(node)];
