@@ -985,7 +985,7 @@ PrefabInstance:
     - target: {fileID: 8748272401561338700, guid: e57a9f6f9fd97a34b8b05d0cafe61ba6,
         type: 3}
       propertyPath: m_Options.m_Options.Array.size
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8748272401561338700, guid: e57a9f6f9fd97a34b8b05d0cafe61ba6,
         type: 3}
@@ -1006,6 +1006,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Options.m_Options.Array.data[3].m_Text
       value: Cells (Test)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748272401561338700, guid: e57a9f6f9fd97a34b8b05d0cafe61ba6,
+        type: 3}
+      propertyPath: m_Options.m_Options.Array.data[4].m_Text
+      value: Depth
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748272401561338700, guid: e57a9f6f9fd97a34b8b05d0cafe61ba6,
+        type: 3}
+      propertyPath: m_Options.m_Options.Array.data[5].m_Text
+      value: Kursdal
       objectReference: {fileID: 0}
     - target: {fileID: 8748272401445220671, guid: e57a9f6f9fd97a34b8b05d0cafe61ba6,
         type: 3}
@@ -2561,6 +2571,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Button (Wall)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8219996424265798927, guid: 98fe368f2dad0f340a10a4da060ca990,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8219996424265798927, guid: 98fe368f2dad0f340a10a4da060ca990,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.96862745
+      objectReference: {fileID: 0}
+    - target: {fileID: 8219996424265798927, guid: 98fe368f2dad0f340a10a4da060ca990,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8219996424265798927, guid: 98fe368f2dad0f340a10a4da060ca990,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8219996424265799409, guid: 98fe368f2dad0f340a10a4da060ca990,
         type: 3}

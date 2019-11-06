@@ -20,6 +20,7 @@ public class MazeBuilder
     public MazeBuilder(MazeManager mazeManager)
     {
         this.mazeManager = mazeManager;
+        Init();
     }
 
     public MazeData Run()
@@ -35,6 +36,8 @@ public class MazeBuilder
 
         return new MazeData(startsFilled, nodeOrigen, nodeTarget, walls);
     }
+
+    public virtual void Init() { }
 
     public virtual void RunMazeBuilder() { }
 

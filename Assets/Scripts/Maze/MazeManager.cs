@@ -18,6 +18,8 @@ public class MazeManager : MonoBehaviour
     private MazeBuilder mazebuilderPerlin;
     private MazeBuilder mazebuilderPerlin2;
     private MazeBuilder mazebuilderCells;
+    private MazeBuilder mazebuilderDepth;
+    private MazeBuilder mazeBuilderKruskal;
 
     private void Awake()
     {
@@ -25,6 +27,8 @@ public class MazeManager : MonoBehaviour
         mazebuilderPerlin = new MazeBuilderPerlin(this);
         mazebuilderPerlin2 = new MazeBuilderPerlin2(this);
         mazebuilderCells = new MazeBuilderCells(this);
+        mazebuilderDepth = new MazeBuilderDepth(this);
+        mazeBuilderKruskal = new MazeBuilderKruskal(this);
     }
 
     public void StartMazeBuilder(MazeMode mazeMode)
@@ -33,25 +37,29 @@ public class MazeManager : MonoBehaviour
 
         MazeData mazeData;
 
-        if (mazeMode == MazeMode.Random)
+        switch (mazeMode)
         {
-            mazeData = mazeBuilderRandom.Run();
-        }
-        else if (mazeMode == MazeMode.Perlin)
-        {
-            mazeData = mazebuilderPerlin.Run();
-        }
-        else if (mazeMode == MazeMode.Perlin2)
-        {
-            mazeData = mazebuilderPerlin2.Run();
-        }
-        else if (mazeMode == MazeMode.Cells)
-        {
-            mazeData = mazebuilderCells.Run();
-        }
-        else
-        {
-            mazeData = new MazeData(false, new Vector2Int(0, 0), new Vector2Int(width - 1, height - 1), new List<WallInfo>());
+            case MazeMode.Random:
+                mazeData = mazeBuilderRandom.Run();
+                break;
+            case MazeMode.Perlin:
+                mazeData = mazebuilderPerlin.Run();
+                break;
+            case MazeMode.Perlin2:
+                mazeData = mazebuilderPerlin2.Run();
+                break;
+            case MazeMode.Cells:
+                mazeData = mazebuilderCells.Run();
+                break;
+            case MazeMode.Depth:
+                mazeData = mazebuilderDepth.Run();
+                break;
+            case MazeMode.Kruskal:
+                mazeData = mazeBuilderKruskal.Run();
+                break;
+            default:
+                mazeData = new MazeData(false, new Vector2Int(0, 0), new Vector2Int(width - 1, height - 1), new List<WallInfo>());
+                break;
         }
 
         visualizationManager.StartVMaze(mazeData);
@@ -64,5 +72,7 @@ public enum MazeMode
     Random,
     Perlin,
     Perlin2,
-    Cells
+    Cells,
+    Depth,
+    Kruskal
 }
