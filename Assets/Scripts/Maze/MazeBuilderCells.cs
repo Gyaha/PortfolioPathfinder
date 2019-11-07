@@ -123,6 +123,14 @@ public class MazeBuilderCells : MazeBuilder
         return node;
     }
 
+    protected Vector2Int NodeToCell(Vector2Int node)
+    {
+        Vector2Int cell = new Vector2Int();
+        cell.x = Mathf.FloorToInt((node.x - 1) / 2);
+        cell.y = Mathf.FloorToInt((node.y - 1) / 2);
+        return cell;
+    }
+
     protected bool CompareCells(Vector2Int cell1, Vector2Int cell2)
     {
         return cell1 == cell2;
@@ -221,21 +229,43 @@ public class MazeBuilderCells : MazeBuilder
 
         if (wall.x % 2 == 0)
         {
-            Vector2Int cellEast = new Vector2Int(wall.x + 1, wall.y);
-            Vector2Int cellWest = new Vector2Int(wall.x - 1, wall.y);
+            Vector2Int cellEast = NodeToCell(new Vector2Int(wall.x + 1, wall.y));
+            Vector2Int cellWest = NodeToCell(new Vector2Int(wall.x - 1, wall.y));
 
             cells.Add(cellEast);
             cells.Add(cellWest);
         }
         else
         {
-            Vector2Int cellNorth = new Vector2Int(wall.x, wall.y + 1);
-            Vector2Int cellSouth = new Vector2Int(wall.x, wall.y - 1);
+            Vector2Int cellNorth = NodeToCell(new Vector2Int(wall.x, wall.y + 1));
+            Vector2Int cellSouth = NodeToCell(new Vector2Int(wall.x, wall.y - 1));
 
             cells.Add(cellNorth);
             cells.Add(cellSouth);
         }
 
         return cells;
+    }
+
+    protected Direction GetCellDirection(Vector2Int cell1, Vector2Int cell2)
+    {
+        if (cell1.y < cell2.y)
+        {
+            return Direction.North;
+        }
+        if (cell1.y > cell2.y)
+        {
+            return Direction.South;
+        }
+        if (cell1.x < cell2.x)
+        {
+            return Direction.East;
+        }
+        if (cell1.x > cell2.x)
+        {
+            return Direction.West;
+        }
+        Debug.LogError("Unknown direction");
+        return Direction.North;
     }
 }
