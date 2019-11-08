@@ -985,7 +985,7 @@ PrefabInstance:
     - target: {fileID: 8748272401561338700, guid: e57a9f6f9fd97a34b8b05d0cafe61ba6,
         type: 3}
       propertyPath: m_Options.m_Options.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8748272401561338700, guid: e57a9f6f9fd97a34b8b05d0cafe61ba6,
         type: 3}
@@ -1016,6 +1016,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Options.m_Options.Array.data[5].m_Text
       value: Kursdal
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748272401561338700, guid: e57a9f6f9fd97a34b8b05d0cafe61ba6,
+        type: 3}
+      propertyPath: m_Options.m_Options.Array.data[6].m_Text
+      value: Prims
       objectReference: {fileID: 0}
     - target: {fileID: 8748272401445220671, guid: e57a9f6f9fd97a34b8b05d0cafe61ba6,
         type: 3}

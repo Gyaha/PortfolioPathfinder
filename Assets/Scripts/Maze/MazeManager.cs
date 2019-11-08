@@ -20,6 +20,7 @@ public class MazeManager : MonoBehaviour
     private MazeBuilder mazebuilderCells;
     private MazeBuilder mazebuilderDepth;
     private MazeBuilder mazeBuilderKruskal;
+    private MazeBuilder mazeBuilderPrims;
 
     private void Awake()
     {
@@ -29,6 +30,7 @@ public class MazeManager : MonoBehaviour
         mazebuilderCells = new MazeBuilderCells(this);
         mazebuilderDepth = new MazeBuilderDepth(this);
         mazeBuilderKruskal = new MazeBuilderKruskal(this);
+        mazeBuilderPrims = new MazeBuilderPrims(this);
     }
 
     public void StartMazeBuilder(MazeMode mazeMode)
@@ -57,6 +59,9 @@ public class MazeManager : MonoBehaviour
             case MazeMode.Kruskal:
                 mazeData = mazeBuilderKruskal.Run();
                 break;
+            case MazeMode.Prims:
+                mazeData = mazeBuilderPrims.Run();
+                break;
             default:
                 mazeData = new MazeData(false, new Vector2Int(0, 0), new Vector2Int(width - 1, height - 1), new List<WallInfo>());
                 break;
@@ -74,5 +79,6 @@ public enum MazeMode
     Perlin2,
     Cells,
     Depth,
-    Kruskal
+    Kruskal,
+    Prims
 }

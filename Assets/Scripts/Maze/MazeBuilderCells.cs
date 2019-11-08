@@ -79,7 +79,7 @@ public class MazeBuilderCells : MazeBuilder
 
     protected bool GetCellDirectionWall(Vector2Int cell, Direction cellWall)
     {
-        return GetWall(CellWallToNode(cell, cellWall));
+        return GetWall(GetCellWallNode(cell, cellWall));
     }
 
     protected void SetCellDirectionWall(Vector2Int cell, Direction cellWall, bool wall)
@@ -89,10 +89,24 @@ public class MazeBuilderCells : MazeBuilder
             Debug.LogError("Trying to set wall to out of bounds cell");
             return;
         }
-        SetWall(CellWallToNode(cell, cellWall), wall);
+        SetWall(GetCellWallNode(cell, cellWall), wall);
     }
 
-    protected Vector2Int CellWallToNode(Vector2Int cell, Direction cellWall)
+    protected List<Vector2Int> GetCellWallNodes(Vector2Int cell)
+    {
+        List<Vector2Int> walls = new List<Vector2Int>();
+
+        List<Direction> cellNeighbors = GetCellNeighbors(cell);
+
+        foreach (var neighbor in cellNeighbors)
+        {
+            walls.Add(GetCellWallNode(cell, neighbor));
+        }
+
+        return walls;
+    }
+
+    protected Vector2Int GetCellWallNode(Vector2Int cell, Direction cellWall)
     {
         Vector2Int node = CellToNode(cell);
         switch (cellWall)
@@ -268,4 +282,6 @@ public class MazeBuilderCells : MazeBuilder
         Debug.LogError("Unknown direction");
         return Direction.North;
     }
+
+
 }
