@@ -7,56 +7,56 @@ public class MazeBuilderPrims : MazeBuilderCells
 {
     public MazeBuilderPrims(MazeManager mazeManager) : base(mazeManager) { }
 
-    public override void RunMazeBuilder()
+    public override void Run()
     {
-        base.RunMazeBuilder();
+        base.Run();
 
-        List<Vector2Int> wallQueue = new List<Vector2Int>();
+        List<Vector2Int> queue = new List<Vector2Int>();
 
         foreach (var wall in GetCellWallNodes(cellOrigen))
         {
-            wallQueue.Add(wall);
+            queue.Add(wall);
         }
 
-        SetCellWall(cellOrigen, false);
+        SetCell(cellOrigen, false);
 
-        while (wallQueue.Count > 0)
+        while (queue.Count > 0)
         {
-            wallQueue.Shuffle();
+            queue.Shuffle();
 
-            Vector2Int wall = wallQueue[0];
-            wallQueue.RemoveAt(0);
+            Vector2Int wall = queue[0];
+            queue.RemoveAt(0);
 
             List<Vector2Int> wallCells = GetWallCells(wall);
 
             Vector2Int cell1 = wallCells[0];
             Vector2Int cell2 = wallCells[1];
 
-            if (GetCellWall(cell1) || GetCellWall(cell2))
+            if (GetCell(cell1) || GetCell(cell2))
             {
-                if (GetCellWall(cell1))
+                if (GetCell(cell1))
                 {
-                    wallQueue = AddCellWallsToQueue(wallQueue, cell1);
+                    queue = AddCellWallsToQueue(queue, cell1);
                 }
-                if (GetCellWall(cell2))
+                if (GetCell(cell2))
                 {
-                    wallQueue = AddCellWallsToQueue(wallQueue, cell2);
+                    queue = AddCellWallsToQueue(queue, cell2);
                 }
 
-                SetCellWall(cell1, false);
-                SetCellWall(cell2, false);
-                SetWall(wall, false);
+                SetCell(cell1, false);
+                SetCell(cell2, false);
+                SetNode(wall, false);
             }
         }
     }
 
-    private List<Vector2Int> AddCellWallsToQueue(List<Vector2Int> wallQueue, Vector2Int cell)
+    private List<Vector2Int> AddCellWallsToQueue(List<Vector2Int> queue, Vector2Int cell)
     {
         foreach (var wall in GetCellWallNodes(cell))
         {
-            wallQueue.Add(wall);
+            queue.Add(wall);
         }
 
-        return wallQueue;
+        return queue;
     }
 }

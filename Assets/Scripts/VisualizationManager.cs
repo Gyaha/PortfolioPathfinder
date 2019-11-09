@@ -35,7 +35,7 @@ public class VisualizationManager : MonoBehaviour
 
         gridManager.SetOrigenAndTarget(mazeData.nodeOrigen.x, mazeData.nodeOrigen.y, mazeData.nodeTarget.x, mazeData.nodeTarget.y);
 
-        IEnumerator vWalls = VWalls(mazeData.walls);
+        IEnumerator vWalls = VWalls(mazeData.wallInfo);
         StartCoroutine(vWalls);
     }
 

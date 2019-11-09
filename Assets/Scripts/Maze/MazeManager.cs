@@ -42,25 +42,25 @@ public class MazeManager : MonoBehaviour
         switch (mazeMode)
         {
             case MazeMode.Random:
-                mazeData = mazeBuilderRandom.Run();
+                mazeData = mazeBuilderRandom.RunMazeBuilder();
                 break;
             case MazeMode.Perlin:
-                mazeData = mazebuilderPerlin.Run();
+                mazeData = mazebuilderPerlin.RunMazeBuilder();
                 break;
             case MazeMode.Perlin2:
-                mazeData = mazebuilderPerlin2.Run();
+                mazeData = mazebuilderPerlin2.RunMazeBuilder();
                 break;
             case MazeMode.Cells:
-                mazeData = mazebuilderCells.Run();
+                mazeData = mazebuilderCells.RunMazeBuilder();
                 break;
             case MazeMode.Depth:
-                mazeData = mazebuilderDepth.Run();
+                mazeData = mazebuilderDepth.RunMazeBuilder();
                 break;
             case MazeMode.Kruskal:
-                mazeData = mazeBuilderKruskal.Run();
+                mazeData = mazeBuilderKruskal.RunMazeBuilder();
                 break;
             case MazeMode.Prims:
-                mazeData = mazeBuilderPrims.Run();
+                mazeData = mazeBuilderPrims.RunMazeBuilder();
                 break;
             default:
                 mazeData = new MazeData(false, new Vector2Int(0, 0), new Vector2Int(width - 1, height - 1), new List<WallInfo>());

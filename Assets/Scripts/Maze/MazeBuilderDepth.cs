@@ -6,37 +6,36 @@ public class MazeBuilderDepth : MazeBuilderCells
 {
     public MazeBuilderDepth(MazeManager mazeManager) : base(mazeManager) { }
 
-    public override void RunMazeBuilder()
+    public override void Run()
     {
-        base.RunMazeBuilder();
+        base.Run();
 
-        List<Vector2Int> openList = new List<Vector2Int>();
-        openList.Add(cellOrigen);
+        List<Vector2Int> queue = new List<Vector2Int>();
+        queue.Add(cellOrigen);
 
-
-        while (openList.Count > 0)
+        while (queue.Count > 0)
         {
-            Vector2Int cellCurrent = openList[0];
+            Vector2Int cellCurrent = queue[0];
 
-            List<Direction> openDirections = GetNonVisitedNeighbors(cellCurrent);
+            List<WallDirection> openDirections = GetCellOpenNeighbors(cellCurrent);
 
             if (openDirections.Count > 0)
             {
                 openDirections.Shuffle();
 
-                Direction direction = openDirections[0];
+                WallDirection direction = openDirections[0];
 
                 Vector2Int cellTarget = GetCellInDirection(cellCurrent, direction);
 
-                SetCellDirectionWall(cellCurrent, direction, false);
+                SetCellWall(cellCurrent, direction, false);
 
-                SetCellWall(cellTarget, false);
+                SetCell(cellTarget, false);
 
-                openList.Insert(0, cellTarget);
+                queue.Insert(0, cellTarget);
             }
             else
             {
-                openList.RemoveAt(0);
+                queue.RemoveAt(0);
             }
         }
     }

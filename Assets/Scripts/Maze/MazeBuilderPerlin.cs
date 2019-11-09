@@ -9,7 +9,7 @@ public class MazeBuilderPerlin : MazeBuilder
     private float perlinMultiplier = 0.25F;
     private float perlinCut = 0.5F;
 
-    public override void RunMazeBuilder()
+    public override void Run()
     {
         int perlinOffset = Random.Range(0, 10000);
 
@@ -24,7 +24,7 @@ public class MazeBuilderPerlin : MazeBuilder
 
                     if (perlin > perlinCut)
                     {
-                        SetWall(node, true);
+                        SetNode(node, true);
                     }
                 }
             }

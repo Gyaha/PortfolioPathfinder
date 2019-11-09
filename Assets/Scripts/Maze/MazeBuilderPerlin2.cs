@@ -9,7 +9,7 @@ public class MazeBuilderPerlin2 : MazeBuilder
     private float perlinMultiplier = 0.25F;
     private float perlinCut = 0.5F;
 
-    public override void RunMazeBuilder()
+    public override void Run()
     {
         SetMapStart(true);
 
@@ -26,7 +26,7 @@ public class MazeBuilderPerlin2 : MazeBuilder
 
                     if (perlin < perlinCut)
                     {
-                        SetWall(node, false);
+                        SetNode(node, false);
                     }
                 }
             }

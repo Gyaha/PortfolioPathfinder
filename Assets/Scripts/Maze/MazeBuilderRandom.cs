@@ -6,7 +6,7 @@ public class MazeBuilderRandom : MazeBuilder
 {
     public MazeBuilderRandom(MazeManager mazeManager) : base(mazeManager) { }
 
-    public override void RunMazeBuilder()
+    public override void Run()
     {
         for (int x = 0; x < width; x++)
         {
@@ -18,7 +18,7 @@ public class MazeBuilderRandom : MazeBuilder
                     bool wall = System.Convert.ToBoolean(Random.Range(0, 2));
                     if (wall)
                     {
-                        SetWall(node, true);
+                        SetNode(node, true);
                     }
                 }
             }

@@ -6,9 +6,9 @@ public class MazeBuilderKruskal : MazeBuilderCells
 {
     public MazeBuilderKruskal(MazeManager mazeManager) : base(mazeManager) { }
 
-    public override void RunMazeBuilder()
+    public override void Run()
     {
-        base.RunMazeBuilder();
+        base.Run();
 
         List<Vector2Int> allWalls = GetAllWalls();
 
@@ -31,16 +31,16 @@ public class MazeBuilderKruskal : MazeBuilderCells
             Vector2Int cell1 = cells[0];
             Vector2Int cell2 = cells[1];
 
-            int cell1Group = GetCellGroup(cellGroups, cell1);
-            int cell2Group = GetCellGroup(cellGroups, cell2);
+            int cellGroup1 = GetCellGroup(cellGroups, cell1);
+            int cellGroup2 = GetCellGroup(cellGroups, cell2);
 
-            if (cell1Group != cell2Group)
+            if (cellGroup1 != cellGroup2)
             {
-                SetCellWall(cell1, false);
-                SetCellWall(cell2, false);
-                SetCellDirectionWall(cell1, GetCellDirection(cell1, cell2), false);
+                SetCell(cell1, false);
+                SetCell(cell2, false);
+                SetCellWall(cell1, GetCellDirection(cell1, cell2), false);
 
-                cellGroups = CombineCellGroups(cellGroups, cell1Group, cell2Group);
+                cellGroups = CombineCellGroups(cellGroups, cellGroup1, cellGroup2);
             }
         }
 

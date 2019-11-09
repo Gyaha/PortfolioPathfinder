@@ -20,10 +20,9 @@ public class MazeBuilder
     public MazeBuilder(MazeManager mazeManager)
     {
         this.mazeManager = mazeManager;
-        Init();
     }
 
-    public MazeData Run()
+    public MazeData RunMazeBuilder()
     {
         nodeOrigen = mazeManager.nodeOrigen;
         nodeTarget = mazeManager.nodeTarget;
@@ -32,14 +31,12 @@ public class MazeBuilder
         wallMap = new bool[width * height];
         SetMapStart(false);
 
-        RunMazeBuilder();
+        Run();
 
         return new MazeData(startsFilled, nodeOrigen, nodeTarget, walls);
     }
 
-    public virtual void Init() { }
-
-    public virtual void RunMazeBuilder() { }
+    public virtual void Run() { }
 
     protected bool CompareNodes(Vector2Int node1, Vector2Int node2)
     {
@@ -52,18 +49,12 @@ public class MazeBuilder
         for (int i = 0; i < wallMap.Length; i++) wallMap[i] = startsFilled;
     }
 
-    protected bool GetWall(int x, int y)
-    {
-        Vector2Int node = new Vector2Int(x, y);
-        return GetWall(node);
-    }
-
-    protected bool GetWall(Vector2Int node)
+    protected bool GetNode(Vector2Int node)
     {
         return wallMap[NodeToIndex(node)];
     }
 
-    protected void SetWall(Vector2Int node, bool wall)
+    protected void SetNode(Vector2Int node, bool wall)
     {
         wallMap[NodeToIndex(node)] = wall;
         walls.Add(new WallInfo(node, wall));
@@ -71,28 +62,12 @@ public class MazeBuilder
 
     protected bool IsNodeInBounds(Vector2Int node)
     {
-        if (node.x < 0 || node.x >= width || node.y < 0 || node.y >= height) return false;
-        return true;
+        return !(node.x < 0 || node.x >= width || node.y < 0 || node.y >= height);
     }
 
     private int NodeToIndex(Vector2Int node)
     {
         return (node.y * width) + node.x;
-    }
-
-    protected void RandomOrigenAndTarget()
-    {
-        nodeOrigen.x = Random.Range(0, width);
-        nodeOrigen.y = Random.Range(0, height);
-
-        nodeTarget.x = Random.Range(0, width);
-        nodeTarget.y = Random.Range(0, height);
-
-        while (CompareNodes(nodeOrigen, nodeTarget))
-        {
-            nodeTarget.x = Random.Range(0, width);
-            nodeTarget.y = Random.Range(0, height);
-        }
     }
 }
 
@@ -103,14 +78,14 @@ public struct MazeData
     public Vector2Int nodeOrigen;
     public Vector2Int nodeTarget;
 
-    public List<WallInfo> walls;
+    public List<WallInfo> wallInfo;
 
-    public MazeData(bool startsFilled, Vector2Int nodeOrigen, Vector2Int nodeTarget, List<WallInfo> walls)
+    public MazeData(bool startsFilled, Vector2Int nodeOrigen, Vector2Int nodeTarget, List<WallInfo> wallInfo)
     {
         this.startsFilled = startsFilled;
         this.nodeOrigen = nodeOrigen;
         this.nodeTarget = nodeTarget;
-        this.walls = walls;
+        this.wallInfo = wallInfo;
     }
 }
 
