@@ -1221,8 +1221,8 @@ GameObject:
   - component: {fileID: 1352232078}
   - component: {fileID: 1352232079}
   - component: {fileID: 1352232080}
-  - component: {fileID: 1352232081}
   - component: {fileID: 1352232082}
+  - component: {fileID: 1352232081}
   - component: {fileID: 1352232083}
   m_Layer: 0
   m_Name: Managers
