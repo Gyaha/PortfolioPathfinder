@@ -8,7 +8,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float speed = 1;
     [SerializeField] private Vector2 bounds = new Vector2(5, 5);
     [SerializeField] private float border = 0;
-    
+
     private bool isometric = false;
     private Vector3 velocity;
 
@@ -49,5 +49,7 @@ public class CameraController : MonoBehaviour
     {
         bounds.x = width;
         bounds.y = height;
+
+        transform.localPosition = new Vector3(width / 2, 0, height / 2);
     }
 }

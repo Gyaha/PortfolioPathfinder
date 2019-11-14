@@ -2944,6 +2944,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1498140606}
   - component: {fileID: 1498140607}
+  - component: {fileID: 1498140608}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -2982,6 +2983,23 @@ MonoBehaviour:
   speed: 10
   bounds: {x: 128, y: 128}
   border: 1
+--- !u!114 &1498140608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1498140605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11c78f7f32890cb488fb3cb319aa0825, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  perspective: {fileID: 519420031}
+  orthographic: {fileID: 1561314530}
+  Levels: 8
+  perspectiveBar: {x: 30, y: 90}
+  orthographicBar: {x: 4, y: 16}
 --- !u!1 &1538269980
 GameObject:
   m_ObjectHideFlags: 0
