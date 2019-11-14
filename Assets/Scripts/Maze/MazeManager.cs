@@ -50,9 +50,6 @@ public class MazeManager : MonoBehaviour
             case MazeMode.Perlin2:
                 mazeData = mazebuilderPerlin2.RunMazeBuilder();
                 break;
-            case MazeMode.Cells:
-                mazeData = mazebuilderCells.RunMazeBuilder();
-                break;
             case MazeMode.Depth:
                 mazeData = mazebuilderDepth.RunMazeBuilder();
                 break;
@@ -74,11 +71,10 @@ public class MazeManager : MonoBehaviour
 
 public enum MazeMode
 {
-    Random,
-    Perlin,
-    Perlin2,
-    Cells,
     Depth,
     Kruskal,
-    Prims
+    Prims,
+    Random,
+    Perlin,
+    Perlin2
 }
