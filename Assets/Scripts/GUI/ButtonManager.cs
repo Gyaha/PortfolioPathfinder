@@ -34,6 +34,11 @@ public class ButtonManager : MonoBehaviour
         gridManager.ClearWalls();
     }
 
+    public void ClearPath()
+    {
+        gridManager.ClearPathAndDots();
+    }
+
     public void ChangeMouseSelection(int selection)
     {
         MouseSelection mouseSelection = (MouseSelection)selection;
