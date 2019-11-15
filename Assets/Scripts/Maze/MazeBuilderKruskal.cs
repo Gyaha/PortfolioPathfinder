@@ -61,8 +61,6 @@ public class MazeBuilderKruskal : MazeBuilderCells
 
     private int GetCellGroup(List<List<Vector2Int>> cellGroups, Vector2Int cell)
     {
-        Debug.Log("search cells");
-
         for (int i = 0; i < cellGroups.Count; i++)
         {
             List<Vector2Int> cellGroup = cellGroups[i];
