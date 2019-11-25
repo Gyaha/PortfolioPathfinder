@@ -22,6 +22,23 @@ public class ButtonManager : MonoBehaviour
     [SerializeField] private Color buttonDefaultColor = Color.white;
     [SerializeField] private Color buttonSelectedColor = Color.green;
 
+    [SerializeField] private GameObject panelMenu = null;
+
+    [SerializeField] private KeyCode openMenu = KeyCode.Escape;
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(openMenu))
+        {
+            OpenCloseSettings();
+        }
+    }
+
+    public void OpenCloseSettings()
+    {
+        panelMenu.SetActive(!panelMenu.activeSelf);
+    }
+
     public void CreateGrid()
     {
         GridSize gridSize = (GridSize)gridSelector.value;
@@ -88,6 +105,11 @@ public class ButtonManager : MonoBehaviour
         MazeMode mazeMode = (MazeMode)mazeSelector.value;
 
         mazeManager.StartMazeBuilder(mazeMode);
+    }
+
+    public void QuitApplication()
+    {
+        Application.Quit();
     }
 
 }

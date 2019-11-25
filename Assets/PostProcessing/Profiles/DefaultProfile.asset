@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a3bdb2cd68f901469e7cc149151eb49, type: 3}
-  m_Name: Web
+  m_Name: DefaultProfile
   m_EditorClassIdentifier: 
   debugViews:
     m_Enabled: 1
@@ -34,17 +34,17 @@ MonoBehaviour:
     m_Settings:
       method: 0
       fxaaSettings:
-        preset: 0
+        preset: 4
       taaSettings:
         jitterSpread: 0.75
         sharpen: 0.3
         stationaryBlending: 0.95
         motionBlending: 0.85
   ambientOcclusion:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
       intensity: 1
-      radius: 0.3
+      radius: 0.5
       sampleCount: 10
       downsampling: 1
       forceForwardCompatibility: 0
